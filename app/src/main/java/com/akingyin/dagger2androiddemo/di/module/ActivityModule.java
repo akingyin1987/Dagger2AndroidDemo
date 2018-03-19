@@ -3,6 +3,7 @@ package com.akingyin.dagger2androiddemo.di.module;
 import com.akingyin.dagger2androiddemo.di.component.ActivityComponent;
 import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
 import com.akingyin.dagger2androiddemo.ui.MainActivity;
+import com.akingyin.dagger2androiddemo.ui.UserModule;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
@@ -17,7 +18,7 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class ActivityModule {
 
   @PerActivity
-  @ContributesAndroidInjector
+  @ContributesAndroidInjector(modules = UserModule.class)
   abstract MainActivity contributeMainActivitytInjector();
   //
   //@ContributesAndroidInjector(modules = SecondActivityModule.class)

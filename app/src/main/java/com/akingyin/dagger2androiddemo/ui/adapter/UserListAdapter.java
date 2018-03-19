@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.akingyin.dagger2androiddemo.db.UserEntity;
+import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import javax.inject.Inject;
 
@@ -18,7 +19,7 @@ public class UserListAdapter  extends BaseQuickAdapter<UserEntity,UserViewHolder
 
   LayoutInflater  mInflater;
   @Inject
-  public UserListAdapter( Context context) {
+  public UserListAdapter(@PerActivity Context context) {
     super(null);
     mInflater = LayoutInflater.from(context);
   }
