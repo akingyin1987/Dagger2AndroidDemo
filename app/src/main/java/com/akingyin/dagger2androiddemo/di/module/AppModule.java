@@ -1,5 +1,9 @@
 package com.akingyin.dagger2androiddemo.di.module;
 
+import android.app.Application;
+import android.content.Context;
+import com.akingyin.dagger2androiddemo.di.scope.ApplicationContext;
+import dagger.Binds;
 import dagger.Module;
 
 /**
@@ -10,5 +14,9 @@ import dagger.Module;
  */
 
 @Module
-public class AppModule {
+public abstract class AppModule {
+
+  @Binds
+  @ApplicationContext
+  abstract Context bindContext(Application application);
 }

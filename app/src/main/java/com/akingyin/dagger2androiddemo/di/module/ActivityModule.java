@@ -1,9 +1,11 @@
 package com.akingyin.dagger2androiddemo.di.module;
 
+import android.content.Context;
+import com.akingyin.dagger2androiddemo.base.BaseActivity;
 import com.akingyin.dagger2androiddemo.di.component.ActivityComponent;
-import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
+import com.akingyin.dagger2androiddemo.di.scope.ActivityContext;
 import com.akingyin.dagger2androiddemo.ui.MainActivity;
-import com.akingyin.dagger2androiddemo.ui.UserModule;
+import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
@@ -17,10 +19,12 @@ import dagger.android.ContributesAndroidInjector;
 @Module(subcomponents = { ActivityComponent.class})
 public abstract class ActivityModule {
 
-  @PerActivity
-  @ContributesAndroidInjector(modules = UserModule.class)
+  @Binds
+  @ActivityContext
+  abstract Context bindActivityContext(BaseActivity activity);
+
+  @ContributesAndroidInjector
   abstract MainActivity contributeMainActivitytInjector();
-  //
-  //@ContributesAndroidInjector(modules = SecondActivityModule.class)
-  //abstract SecondActivity contributeSecondActivityInjector();
+
+
 }

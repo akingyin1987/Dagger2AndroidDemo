@@ -20,10 +20,12 @@ public class MainActivity  extends BaseActivity {
   UserEntityDao   mUserEntityDao;
   @Inject
   UserListAdapter  mUserListAdapter;
+
+
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     System.out.println("null == mUserEntityDao"+(null == mUserEntityDao));
-    System.out.println("null == ");
+
   }
 }

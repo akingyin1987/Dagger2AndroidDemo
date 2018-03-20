@@ -3,6 +3,7 @@ package com.akingyin.dagger2androiddemo.ui;
 import android.content.Context;
 import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
 import dagger.Module;
+import dagger.Provides;
 
 /**
  * @author king
@@ -15,6 +16,10 @@ import dagger.Module;
 public abstract class UserModule {
 
   @PerActivity
-  abstract Context  getContext();
+  @Provides
+  static Context getContext(MainActivity  activity){
+    return activity;
+   }
+
 
 }
