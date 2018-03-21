@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+>
+  <android.support.design.widget.AppBarLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+  >
 
-</LinearLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="测试"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:background="?attr/colorPrimary"
+    />
+
+  </android.support.design.widget.AppBarLayout>
+
+
+  <android.support.v7.widget.RecyclerView
+      android:layout_width="match_parent"
+      android:id="@+id/recycler"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+      android:layout_height="match_parent"
+  />
+
+  <android.support.design.widget.FloatingActionButton
+      android:id="@+id/fab"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="16dp"
+      android:layout_marginBottom="16dp"
+      app:layout_behavior="@string/appbar_scrolling_view_behavior"
+      android:src="@android:drawable/ic_dialog_email"
+      app:layout_anchorGravity="right|bottom"
+      app:layout_anchor="@+id/recycler"/>
+</android.support.design.widget.CoordinatorLayout>

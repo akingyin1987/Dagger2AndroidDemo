@@ -1,9 +1,9 @@
 package com.akingyin.dagger2androiddemo.ui;
 
-import android.content.Context;
+import android.app.Activity;
 import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
+import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
 
 /**
  * @author king
@@ -15,11 +15,7 @@ import dagger.Provides;
 @Module
 public abstract class UserModule {
 
+  @Binds
   @PerActivity
-  @Provides
-  static Context getContext(MainActivity  activity){
-    return activity;
-   }
-
-
+  abstract Activity activity(MainActivity example1Activity);
 }

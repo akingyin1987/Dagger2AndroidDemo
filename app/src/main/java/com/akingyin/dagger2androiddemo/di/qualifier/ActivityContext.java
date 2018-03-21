@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package com.akingyin.dagger2androiddemo.di.scope;
+package com.akingyin.dagger2androiddemo.di.qualifier;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -16,6 +16,6 @@ import javax.inject.Qualifier;
 @Qualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ApplicationContext {
+public @interface ActivityContext {
 
 }

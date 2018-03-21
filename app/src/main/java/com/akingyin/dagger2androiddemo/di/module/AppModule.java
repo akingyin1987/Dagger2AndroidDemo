@@ -2,9 +2,10 @@ package com.akingyin.dagger2androiddemo.di.module;
 
 import android.app.Application;
 import android.content.Context;
-import com.akingyin.dagger2androiddemo.di.scope.ApplicationContext;
+import com.akingyin.dagger2androiddemo.di.qualifier.ApplicationContext;
 import dagger.Binds;
 import dagger.Module;
+import dagger.android.AndroidInjectionModule;
 
 /**
  * @author king
@@ -13,10 +14,12 @@ import dagger.Module;
  * @ Date 2018/3/19 11:27
  */
 
-@Module
+@Module(includes = AndroidInjectionModule.class)
 public abstract class AppModule {
 
   @Binds
   @ApplicationContext
   abstract Context bindContext(Application application);
+
+
 }

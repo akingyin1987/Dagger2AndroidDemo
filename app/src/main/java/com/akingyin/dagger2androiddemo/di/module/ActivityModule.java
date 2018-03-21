@@ -1,12 +1,16 @@
 package com.akingyin.dagger2androiddemo.di.module;
 
+import android.app.Activity;
 import android.content.Context;
-import com.akingyin.dagger2androiddemo.base.BaseActivity;
-import com.akingyin.dagger2androiddemo.di.component.ActivityComponent;
-import com.akingyin.dagger2androiddemo.di.scope.ActivityContext;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
+import com.akingyin.dagger2androiddemo.di.qualifier.ActivityContext;
+import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
 import com.akingyin.dagger2androiddemo.ui.MainActivity;
+import com.akingyin.dagger2androiddemo.ui.UserModule;
 import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
 
 /**
@@ -16,14 +20,23 @@ import dagger.android.ContributesAndroidInjector;
  * @ Date 2018/3/19 10:59
  */
 
-@Module(subcomponents = { ActivityComponent.class})
+@Module
 public abstract class ActivityModule {
 
-  @Binds
-  @ActivityContext
-  abstract Context bindActivityContext(BaseActivity activity);
+   @Binds
+   @ActivityContext
+   abstract Context bindActivityContext(Activity activity);
 
-  @ContributesAndroidInjector
+
+  @Provides
+  @PerActivity
+  static FragmentManager activityFragmentManager(AppCompatActivity activity) {
+    return activity.getSupportFragmentManager();
+  }
+
+
+  @ContributesAndroidInjector(modules = UserModule.class)
+  @PerActivity
   abstract MainActivity contributeMainActivitytInjector();
 
 

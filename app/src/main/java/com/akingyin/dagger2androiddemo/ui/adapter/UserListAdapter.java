@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.akingyin.dagger2androiddemo.db.UserEntity;
-import com.akingyin.dagger2androiddemo.di.scope.ApplicationContext;
+import com.akingyin.dagger2androiddemo.di.qualifier.ActivityContext;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import javax.inject.Inject;
 
@@ -19,18 +19,20 @@ import javax.inject.Inject;
 public class UserListAdapter  extends BaseQuickAdapter<UserEntity,UserViewHolder> {
 
   LayoutInflater  mInflater;
+
   @Inject
-  public UserListAdapter(@ApplicationContext Context context) {
+  public UserListAdapter(@ActivityContext Context context) {
     super(null);
-   //mInflater = LayoutInflater.from(activity);
+   mInflater = LayoutInflater.from(context);
+
   }
 
   @Override protected UserViewHolder onCreateDefViewHolder(ViewGroup parent, int viewType) {
-   // return new UserViewHolder(mInflater,parent);
-    return  null;
+    return new UserViewHolder(mInflater,parent);
+
   }
 
   @Override protected void convert(UserViewHolder helper, UserEntity item) {
-   // helper.bind(item);
+    helper.bind(item);
   }
 }

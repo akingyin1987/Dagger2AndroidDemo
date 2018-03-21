@@ -26,6 +26,7 @@ public class DaggerApp  extends Application implements HasActivityInjector {
     super.onCreate();
     Log.d(DaggerApp.class.getName(),"onCreate");
     DbCore.init(getApplicationContext());
+    DbCore.enableQueryBuilderLog();
     DaggerAppComponent.builder()
         .application(this)
         .dataModel(new DataModule(DbCore.getDaoSession()))

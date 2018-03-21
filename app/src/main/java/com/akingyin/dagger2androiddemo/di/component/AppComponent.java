@@ -23,8 +23,8 @@ import javax.inject.Singleton;
 @Component(modules = {AndroidInjectionModule.class,
              AndroidSupportInjectionModule.class,
     AppModule.class,
-    DataModule.class,
-    ActivityModule.class})
+    DataModule.class, ActivityModule.class
+   })
 public interface AppComponent extends AndroidInjector<DaggerApp> {
 
   @Component.Builder
