@@ -1,7 +1,6 @@
 package com.akingyin.dagger2androiddemo.di.component;
 
 import com.akingyin.dagger2androiddemo.DaggerApp;
-import com.akingyin.dagger2androiddemo.db.dao.UserEntityDao;
 import com.akingyin.dagger2androiddemo.di.module.ActivityModule;
 import com.akingyin.dagger2androiddemo.di.module.AppModule;
 import com.akingyin.dagger2androiddemo.di.module.DataModule;
@@ -19,11 +18,10 @@ import javax.inject.Singleton;
  * @ Date 2018/3/19 10:50
  */
 
-
-@Component(modules = {AndroidInjectionModule.class,
+@Singleton
+@Component(modules = { DataModule.class,AppModule.class, ActivityModule.class
+              ,AndroidInjectionModule.class,
              AndroidSupportInjectionModule.class,
-    AppModule.class,
-    DataModule.class, ActivityModule.class
    })
 public interface AppComponent extends AndroidInjector<DaggerApp> {
 
@@ -33,13 +31,12 @@ public interface AppComponent extends AndroidInjector<DaggerApp> {
     @BindsInstance
     AppComponent.Builder application(DaggerApp application);
 
-
-    AppComponent.Builder dataModel(DataModule  dataModule);
-
+  //  AppComponent.Builder dataModel(DataModule  dataModule);
     AppComponent build();
   }
 
+  //UserEntityDao   getUserEntityDao();
 
-  @Singleton
-  UserEntityDao   getUserEntityDao();
+
+
 }

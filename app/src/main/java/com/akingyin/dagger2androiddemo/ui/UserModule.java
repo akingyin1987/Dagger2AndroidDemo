@@ -18,4 +18,9 @@ public abstract class UserModule {
   @Binds
   @PerActivity
   abstract Activity activity(MainActivity example1Activity);
+
+
+  @Binds
+  @PerActivity
+  abstract  UsersContract.Presenter  tackPresenter(UsersPresenter   mUsersPresenter);
 }

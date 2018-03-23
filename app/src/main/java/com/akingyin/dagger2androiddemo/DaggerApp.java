@@ -5,7 +5,7 @@ import android.app.Application;
 import android.util.Log;
 import com.akingyin.dagger2androiddemo.db.help.DbCore;
 import com.akingyin.dagger2androiddemo.di.component.DaggerAppComponent;
-import com.akingyin.dagger2androiddemo.di.module.DataModule;
+
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
@@ -27,9 +27,10 @@ public class DaggerApp  extends Application implements HasActivityInjector {
     Log.d(DaggerApp.class.getName(),"onCreate");
     DbCore.init(getApplicationContext());
     DbCore.enableQueryBuilderLog();
+
     DaggerAppComponent.builder()
         .application(this)
-        .dataModel(new DataModule(DbCore.getDaoSession()))
+
         .build().inject(this);
   }
 
