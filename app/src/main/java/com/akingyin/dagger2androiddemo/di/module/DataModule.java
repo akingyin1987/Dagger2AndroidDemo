@@ -1,10 +1,13 @@
 package com.akingyin.dagger2androiddemo.di.module;
 
+import com.akingyin.dagger2androiddemo.db.dao.BookEntityDao;
 import com.akingyin.dagger2androiddemo.db.dao.DaoSession;
 import com.akingyin.dagger2androiddemo.db.dao.UserEntityDao;
 import com.akingyin.dagger2androiddemo.db.data.source.Local;
 import com.akingyin.dagger2androiddemo.db.data.source.Remote;
+import com.akingyin.dagger2androiddemo.db.data.source.local.BookLocalDataSource;
 import com.akingyin.dagger2androiddemo.db.data.source.local.UsersLocalDataSource;
+import com.akingyin.dagger2androiddemo.db.data.source.remote.BookRemoteDataSource;
 import com.akingyin.dagger2androiddemo.db.data.source.remote.UsersRemoteDataSource;
 import com.akingyin.dagger2androiddemo.db.help.DbCore;
 import dagger.Binds;
@@ -37,6 +40,12 @@ import javax.inject.Singleton;
   }
 
   @Singleton
+  @Provides
+  static BookEntityDao   getBookEntityDao(DaoSession  daoSession){
+   return  daoSession.getBookEntityDao();
+  }
+
+  @Singleton
   @Binds
   @Local
   abstract UsersLocalDataSource provideUserLocalDataSource(UsersLocalDataSource dataSource);
@@ -45,5 +54,18 @@ import javax.inject.Singleton;
   @Binds
   @Remote
   abstract UsersRemoteDataSource provideUserRemoteDataSource(UsersRemoteDataSource dataSource);
+
+
+ @Singleton
+ @Binds
+ @Local
+ abstract BookLocalDataSource provideBookLocalDataSource(BookLocalDataSource dataSource);
+
+ @Singleton
+ @Binds
+ @Remote
+ abstract BookRemoteDataSource provideBookRemoteDataSource(BookRemoteDataSource dataSource);
+
+
 
 }
