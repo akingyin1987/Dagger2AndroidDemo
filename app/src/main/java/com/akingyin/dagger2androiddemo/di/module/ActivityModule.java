@@ -29,6 +29,8 @@ public abstract class ActivityModule {
    @ActivityContext
    abstract Context bindActivityContext(Activity activity);
 
+
+
   ///**
   // *
   // * @param fragment
