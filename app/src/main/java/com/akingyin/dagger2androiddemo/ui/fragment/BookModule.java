@@ -1,6 +1,12 @@
 package com.akingyin.dagger2androiddemo.ui.fragment;
 
+import android.app.Activity;
+import com.akingyin.dagger2androiddemo.di.scope.PerActivity;
+import com.akingyin.dagger2androiddemo.di.scope.PerFragment;
+import com.akingyin.dagger2androiddemo.ui.BookActivity;
+import dagger.Binds;
 import dagger.Module;
+import dagger.android.ContributesAndroidInjector;
 
 /**
  * @author king
@@ -12,5 +18,12 @@ import dagger.Module;
 @Module
 public abstract class BookModule {
 
+  @PerFragment
+  @ContributesAndroidInjector
+  abstract BookListFragment tasksFragment();
 
+
+  @Binds
+  @PerActivity
+  abstract Activity activity(BookActivity example1Activity);
 }

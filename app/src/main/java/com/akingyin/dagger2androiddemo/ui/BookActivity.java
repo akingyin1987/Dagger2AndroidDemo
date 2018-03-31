@@ -20,6 +20,7 @@ public class BookActivity  extends DaggerAppCompatActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_book);
     BookListFragment   bookListFragment  =
         (BookListFragment) getSupportFragmentManager().findFragmentById(R.id.fl_container);
     if(null == bookListFragment){
