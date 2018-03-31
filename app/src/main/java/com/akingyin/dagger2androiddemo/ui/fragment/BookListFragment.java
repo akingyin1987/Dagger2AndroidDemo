@@ -50,6 +50,7 @@ import javax.inject.Inject;
   @Nullable @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
+
     View root = inflater.inflate(R.layout.fragment_book, container, false);
 
     unbinder = ButterKnife.bind(this, root);

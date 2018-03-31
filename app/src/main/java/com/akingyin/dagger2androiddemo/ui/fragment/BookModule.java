@@ -26,4 +26,7 @@ public abstract class BookModule {
   @Binds
   @PerActivity
   abstract Activity activity(BookActivity example1Activity);
+
+
+
 }

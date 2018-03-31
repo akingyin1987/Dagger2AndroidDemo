@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity implements UsersContract.View{
     mUsersPresenter.takeView(this);
     ButterKnife.bind(this);
     setSupportActionBar(mToolbar);
+
     if(null != getSupportActionBar()){
       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
       getSupportActionBar().setDisplayShowHomeEnabled(true);

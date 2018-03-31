@@ -1,5 +1,6 @@
 package com.akingyin.dagger2androiddemo.ui.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class BookListAdapter  extends BaseQuickAdapter<BookEntity,BookViewHolder
   @Inject
   public BookListAdapter(@ActivityContext Context  context) {
     super(null);
+    System.out.println("context==="+(context  instanceof Activity));
     mInflater = LayoutInflater.from(context);
   }
 
